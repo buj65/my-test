@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>camel</title>
+  <style>
+    textarea {
+      /* resize: none; */
+      font-family: Consolas, Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <textarea cols="50" rows="20" placeholder="输入" id="input1"></textarea>
+  <br/>
+  <button onclick="output.value=camel(input.value);">驼峰</button>
+  <button onclick="output.value=underscore(input.value);">下划线</button>
+  <button onclick="input.value='';output.value='';">清空</button>
+  <br/>
+  <textarea cols="50" rows="20" placeholder="输出" id="output1"></textarea>
+</div>
+<script>
+    let input = document.getElementById('input1');
+    let output = document.getElementById('output1');
+    const camel = s => s.replace(/_[a-z]/g, m => m[1].toUpperCase());
+    const underscore = s => s.replace(/[A-Z]/g, m => '_' + m.toLowerCase());
+</script>
+</body>
+</html>
